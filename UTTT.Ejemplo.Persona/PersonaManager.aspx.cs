@@ -139,7 +139,7 @@ namespace UTTT.Ejemplo.Persona
                     persona.strAMaterno = this.txtAMaterno.Text.Trim();
                     persona.strAPaterno = this.txtAPaterno.Text.Trim();
                     persona.idCatSexo = int.Parse(this.ddlSexo.Text);
-                    // editar de fecha de nacimiento
+                    // editar de fecha de nacimiento 
                     DateTime fechaNacimiento = this.dteCalendar.SelectedDate.Date;
                     persona.dteFechaNacimiento = fechaNacimiento;
                     persona.intNumHermano = int.Parse(this.txtNumHermano.Text);
