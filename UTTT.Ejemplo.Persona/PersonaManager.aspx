@@ -9,7 +9,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" ></script>
 </head>
-<body>
+<body >
     <div class="container well contenedor">
         <div class="row">
             <div class="col-xs-12">
@@ -23,7 +23,7 @@
                 <div class="col-sm-10">
                     <div class="dropdown">
                         <asp:DropDownList ID="ddlSexo" runat="server" 
-                onselectedindexchanged="ddlSexo_SelectedIndexChanged" CssClass="form-select btn btn-primary">
+                onselectedindexchanged="ddlSexo_SelectedIndexChanged" AutoPostBack="true" ForeColor="black" CssClass="selectpicker btn btn-secondary" Width="716px">
             </asp:DropDownList>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                     CssClass="form-control" placeholder="clave numerica de tres digitos"
                     MinLength="3" MaxLength="3" onkeypress="return numbersonly(event);" required></asp:TextBox>
 
-                   <script language="javascript">
+                   <script type="text/javascript">
                     function numbersonly(e) {
                     var unicode = e.charCode ? e.charCode : e.KeyCode
                     if (unicode != 8 && unicode != 44) {
@@ -52,22 +52,42 @@
                 <asp:Label ID="LblNombre" runat="server" Text="Nombre:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10"> 
                     <asp:TextBox ID="txtNombre" runat="server"
-                    placeholder="Nombre(s)" minlength="3" MaxLength="20" CssClass="form-control" required></asp:TextBox>
+                    placeholder="Nombre(s)" minlength="3" MaxLength="15" onkeypress="return letrasonly(event);"
+                        CssClass="form-control" oncopy="return false" pattern="[A-Za-z]+" onpaste="return false" required></asp:TextBox>
+               
+                   <script type="text/javascript">
+                       function letrasonly(e) {
+                           var unicode = e.charCode ? e.charCode : e.KeyCode
+                           if (unicode < 65 || unicode > 90) {
+                               if (unicode != 241) {
+                                   if (unicode < 96 || unicode > 122) {
+                                       return false
+                                   }
+                               }
+                           }
+
+                       }
+                   </script>   
+                
+                
+                
                 </div>
             </div>
             <div class="form-group">
                 <asp:Label ID="lblAPaterno" runat="server" Text="Apellido Paterno:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10"> 
             <asp:TextBox ID="txtAPaterno" runat="server"  BorderStyle="Solid"
-                placeholder="Apellido Paterno" minlength="3" MaxLength="20" CssClass="form-control" required></asp:TextBox>
+                placeholder="Apellido Paterno" minlength="3" MaxLength="20" onkeypress="return letrasonly(event);"
+                CssClass="form-control" oncopy="return false" pattern="[A-Za-z]+" onpaste="return false" required></asp:TextBox>
                 </div>
             </div>
 
              <div class="form-group">
                 <asp:Label ID="lblAMaterno" runat="server" Text="Apellido Materno:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10"> 
-                    <asp:TextBox ID="txtAMaterno" runat="server" placeholder="Apellido Materno"
-                        minlength="3" MaxLength="20" CssClass="form-control" required></asp:TextBox>
+                    <asp:TextBox ID="txtAMaterno" runat="server" placeholder="Apellido Materno" 
+                    onkeypress="return letrasonly(event);" CssClass="form-control" oncopy="return false"
+                        pattern="[A-Za-z]+" onpaste="return false" required></asp:TextBox>
                 </div>
             </div>
 
@@ -91,15 +111,30 @@
                 <asp:Label ID="lblHermanos" runat="server" Text="Numero de Hermanos:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10"> 
                     <asp:TextBox ID="txtNumHermano" runat="server" 
-                        placeholder="Numero total de hermanos" CssClass="form-control" required></asp:TextBox>
+                        placeholder="Numero total de hermanos" onkeypress="return numbersonly(event);"
+                        MinLength="1" MaxLength="2" CssClass="form-control" oncopy="return false"
+                             onpaste="return false" required></asp:TextBox>
+                
+                    <script language="javascript">
+                        function numbersonly(e) {
+                            var unicode = e.charCode ? e.charCode : e.KeyCode
+                            if (unicode != 8 && unicode != 44) {
+                                if (unicode < 48 || unicode > 57) {
+                                    return false
+                                }
+                            }
+                        }
+                    </script>
                 </div>
             </div>
 
             <div class="form-group">
                 <asp:Label ID="lblCorreo" runat="server" Text="Correo Electronico:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10"> 
-                        <asp:TextBox ID="txtCorreo" runat="server"  CssClass="form-control"
-                            placeholder="Correo electronico ej prueba@prueba.com" required></asp:TextBox>
+                        <asp:TextBox ID="txtCorreo" runat="server" 
+                            placeholder="Correo electronico ej prueba@prueba.com" 
+                             CssClass="form-control" oncopy="return false"
+                             onpaste="return false" required></asp:TextBox>
             
                 </div>
             </div>
@@ -108,7 +143,8 @@
                 <asp:Label ID="lblCodigoPostal" runat="server" Text="Codigo Postal:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10"> 
                             <asp:TextBox ID="txtCP" runat="server" 
-                               CssClass="form-control" placeholder="Codigo Postal" required></asp:TextBox>
+                               CssClass="form-control" placeholder="Codigo Postal" oncopy="return false"
+                             onpaste="return false" required></asp:TextBox>
                 </div>
             </div>
 
@@ -116,7 +152,8 @@
                 <asp:Label ID="lblRFC" runat="server" Text="RFC:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10"> 
                                 <asp:TextBox ID="txtRFC" runat="server" placeholder="RFC" 
-                                 CssClass="form-control" required ></asp:TextBox>
+                                 CssClass="form-control" oncopy="return false"
+                             onpaste="return false" required ></asp:TextBox>
 
                 </div>
             </div>

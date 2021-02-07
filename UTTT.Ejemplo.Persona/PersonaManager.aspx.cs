@@ -86,7 +86,10 @@ namespace UTTT.Ejemplo.Persona
                         this.setItem(ref this.ddlSexo, baseEntity.CatSexo.strValor);
                         DateTime? fechaNacimiento = this.baseEntity.dteFechaNacimiento;
                         this.txtNumHermano.Text = this.baseEntity.intNumHermano.ToString();
-                        if(fechaNacimiento != null)
+                        this.txtCorreo.Text = this.baseEntity.strCorreo;
+                        this.txtCP.Text = this.baseEntity.strCP;
+                        this.txtRFC.Text = this.baseEntity.strRFC;
+                        if (fechaNacimiento != null)
                         {
                             this.dteCalendar.TodaysDate = (DateTime)fechaNacimiento;
                             this.dteCalendar.SelectedDate = (DateTime)fechaNacimiento;
@@ -124,6 +127,9 @@ namespace UTTT.Ejemplo.Persona
 
                     //insersion de cantidad de hermanos
                     persona.intNumHermano = int.Parse(this.txtNumHermano.Text);
+                    persona.strCorreo = this.txtCorreo.Text;
+                    persona.strCP = this.txtCP.Text;
+                    persona.strRFC = this.txtRFC.Text;
                     dcGuardar.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().InsertOnSubmit(persona);
                     dcGuardar.SubmitChanges();
                     this.showMessage("El registro se agrego correctamente.");
@@ -143,6 +149,9 @@ namespace UTTT.Ejemplo.Persona
                     DateTime fechaNacimiento = this.dteCalendar.SelectedDate.Date;
                     persona.dteFechaNacimiento = fechaNacimiento;
                     persona.intNumHermano = int.Parse(this.txtNumHermano.Text);
+                    persona.strCorreo = this.txtCorreo.Text;
+                    persona.strCP = this.txtCP.Text;
+                    persona.strRFC = this.txtRFC.Text;
                     dcGuardar.SubmitChanges();
                     this.showMessage("El registro se edito correctamente.");
                     this.Response.Redirect("~/PersonaPrincipal.aspx", false);

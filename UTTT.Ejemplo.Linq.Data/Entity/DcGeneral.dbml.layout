@@ -8,30 +8,30 @@
         <elementListCompartment Id="c001b3ec-9021-4c8c-8bd4-825c65c1e362" absoluteBounds="5.515, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="740c1d96-e836-4bb7-9067-c4bc0e45bf83" absoluteBounds="0.5, 0.5, 2, 1.3862939453125">
+    <classShape Id="740c1d96-e836-4bb7-9067-c4bc0e45bf83" absoluteBounds="0.5, 0.75, 2, 1.3862939453125">
       <DataClassMoniker Name="/DcGeneralDataContext/CatSexo" />
       <nestedChildShapes>
-        <elementListCompartment Id="2e8bec24-1d7b-4893-9796-7dea2029d77c" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="2e8bec24-1d7b-4893-9796-7dea2029d77c" absoluteBounds="0.51499999999999968, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="081df63a-2dcf-4cf0-bdab-81942870c79c" absoluteBounds="3, 1.125, 2, 2.3478011067708335">
+    <classShape Id="fcf32c92-839d-4e53-a943-e87fe5138d63" absoluteBounds="2.875, 1.5, 2, 2.9247054036458331">
       <DataClassMoniker Name="/DcGeneralDataContext/Persona" />
       <nestedChildShapes>
-        <elementListCompartment Id="538a643b-ee11-480f-9a7a-c3928ced0835" absoluteBounds="3.0149999999999997, 1.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="231f1be4-f8ea-440d-993e-9dbdb1b79457" absoluteBounds="2.8899999999999997, 1.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5 : 1.69794840494792); (5.5 : 1.69794840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.875 : 1.88544840494792); (5.5 : 1.88544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DcGeneralDataContext/Persona/Persona_Direccion" />
       <nodes>
-        <classShapeMoniker Id="081df63a-2dcf-4cf0-bdab-81942870c79c" />
+        <classShapeMoniker Id="fcf32c92-839d-4e53-a943-e87fe5138d63" />
         <classShapeMoniker Id="283c5802-c0b3-4d5f-aff8-d981dddc6ea2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 1.50564697265625); (3 : 1.50564697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 1.81814697265625); (2.875 : 1.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DcGeneralDataContext/CatSexo/CatSexo_Persona" />
       <nodes>
         <classShapeMoniker Id="740c1d96-e836-4bb7-9067-c4bc0e45bf83" />
-        <classShapeMoniker Id="081df63a-2dcf-4cf0-bdab-81942870c79c" />
+        <classShapeMoniker Id="fcf32c92-839d-4e53-a943-e87fe5138d63" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
