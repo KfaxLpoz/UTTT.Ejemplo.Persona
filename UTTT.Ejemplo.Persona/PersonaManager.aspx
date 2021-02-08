@@ -23,8 +23,10 @@
                 <div class="col-sm-10">
                     <div class="dropdown">
                         <asp:DropDownList ID="ddlSexo" runat="server" 
-                onselectedindexchanged="ddlSexo_SelectedIndexChanged" AutoPostBack="true" ForeColor="black" CssClass="selectpicker btn btn-secondary" Width="716px">
+                onselectedindexchanged="ddlSexo_SelectedIndexChanged" AutoPostBack="true" ForeColor="black"
+                            CssClass="selectpicker btn btn-secondary" Width="716px">
             </asp:DropDownList>
+
                     </div>
                 </div>
             </div>
@@ -32,10 +34,14 @@
             <div class="form-group">
                 <asp:Label ID="lblClaveUnica" runat="server" Text="Clave Unica:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10">
-                    <asp:TextBox ID="txtClaveUnica"  runat="server" title="Clave Unica"
+                    <asp:TextBox ID="txtClaveUnica"  runat="server" title="Clave Unica" required
                     CssClass="form-control" placeholder="clave numerica de tres digitos"
-                    MinLength="3" MaxLength="3" onkeypress="return numbersonly(event);" required></asp:TextBox>
-
+                    MinLength="3" MaxLength="3" onkeypress="return numbersonly(event);" ></asp:TextBox>
+                      <div>
+                        <asp:RequiredFieldValidator ID="rsvClaveUnica" runat="server"
+                            ErrorMessage="El campo de clave Unica es obligatorio" ControlToValidate="txtClaveUnica" CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
+                     </div>
+            </div>
                    <script type="text/javascript">
                     function numbersonly(e) {
                     var unicode = e.charCode ? e.charCode : e.KeyCode
@@ -47,7 +53,7 @@
                    }
             </script>
                 </div>
-            </div>
+                   
             <div class="form-group">
                 <asp:Label ID="LblNombre" runat="server" Text="Nombre:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10"> 
@@ -68,8 +74,11 @@
 
                        }
                    </script>   
-                
-                
+       
+                <div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
+                            ErrorMessage="El campo Nombre es oblogatorio" ControlToValidate="txtClaveUnica" CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
+                     </div>           
                 
                 </div>
             </div>
@@ -80,6 +89,10 @@
                 placeholder="Apellido Paterno" minlength="3" MaxLength="20" onkeypress="return letrasonly(event);"
                 CssClass="form-control" oncopy="return false" pattern="[A-Za-z]+" onpaste="return false" required></asp:TextBox>
                 </div>
+                                <div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
+                            ErrorMessage="El campo Apellido Paterno es obligatorio" ControlToValidate="txtClaveUnica" CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
+                     </div>
             </div>
 
              <div class="form-group">

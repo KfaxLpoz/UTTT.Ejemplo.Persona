@@ -70,6 +70,8 @@ namespace UTTT.Ejemplo.Persona
                     this.ddlSexo.AutoPostBack = true;
                     if (this.idPersona == 0)
                     {
+
+
                         this.lblAccion.Text = "Agregar";
                         DateTime tiempo = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
                         this.dteCalendar.TodaysDate = tiempo;
