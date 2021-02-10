@@ -56,26 +56,43 @@ namespace UTTT.Ejemplo.Persona
                     {
                         this.session.Parametros.Add("baseEntity", this.baseEntity);
                     }
+
+
                     List<CatSexo> lista = dcGlobal.GetTable<CatSexo>().ToList();
-                    CatSexo catTemp = new CatSexo();
-                    catTemp.id = -1;
-                    catTemp.strValor = "Seleccionar";
-                    lista.Insert(0, catTemp);
+
                     this.ddlSexo.DataTextField = "strValor";
                     this.ddlSexo.DataValueField = "id";
-                    this.ddlSexo.DataSource = lista;
-                    this.ddlSexo.DataBind();
+                    //List<CatSexo> lista = dcGlobal.GetTable<CatSexo>().ToList();
+                    //CatSexo catTemp = new CatSexo();
+                    //catTemp.id = -1;
+                    //catTemp.strValor = "Seleccionar";
+                    //lista.Insert(0, catTemp);
+                    //this.ddlSexo.DataTextField = "strValor";
+                    //this.ddlSexo.DataValueField = "id";
+                    //this.ddlSexo.DataSource = lista;
+                    //this.ddlSexo.DataBind();
 
                     this.ddlSexo.SelectedIndexChanged += new EventHandler(ddlSexo_SelectedIndexChanged);
                     this.ddlSexo.AutoPostBack = true;
                     if (this.idPersona == 0)
                     {
+                        CatSexo catTemp = new CatSexo();
+                        catTemp.id = -1;
+                        catTemp.strValor = "Seleccionar";
+                        lista.Insert(0, catTemp);
 
+
+                        this.ddlSexo.DataSource = lista;
+                        this.ddlSexo.DataBind();
 
                         this.lblAccion.Text = "Agregar";
                         DateTime tiempo = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
                         this.dteCalendar.TodaysDate = tiempo;
                         this.dteCalendar.SelectedDate = tiempo;
+                        //this.lblAccion.Text = "Agregar";
+                        //DateTime tiempo = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                        //this.dteCalendar.TodaysDate = tiempo;
+                        //this.dteCalendar.SelectedDate = tiempo;
 
                     }
                     else
@@ -85,7 +102,7 @@ namespace UTTT.Ejemplo.Persona
                         this.txtAPaterno.Text = this.baseEntity.strAPaterno;
                         this.txtAMaterno.Text = this.baseEntity.strAMaterno;
                         this.txtClaveUnica.Text = this.baseEntity.strClaveUnica;
-                        this.setItem(ref this.ddlSexo, baseEntity.CatSexo.strValor);
+                        //this.setItem(ref this.ddlSexo, baseEntity.CatSexo.strValor);
                         DateTime? fechaNacimiento = this.baseEntity.dteFechaNacimiento;
                         this.txtNumHermano.Text = this.baseEntity.intNumHermano.ToString();
                         this.txtCorreo.Text = this.baseEntity.strCorreo;
@@ -97,7 +114,14 @@ namespace UTTT.Ejemplo.Persona
                             this.dteCalendar.SelectedDate = (DateTime)fechaNacimiento;
 
                         }
+                        this.ddlSexo.DataSource = lista;
+                        this.ddlSexo.DataBind();
+                        this.setItem(ref this.ddlSexo, baseEntity.CatSexo.strValor);
                     }
+                    //this.ddlSexo.SelectedIndexChanged += new EventHandler(ddlSexo_SelectedIndexChanged);
+                    //this.ddlSexo.AutoPostBack = true;
+                   // this.ddlSexo.SelectedIndexChanged += new EventHandler(ddlSexo_SelectedIndexChanged);
+                   // this.ddlSexo.AutoPostBack = true;
                 }
 
             }
@@ -185,7 +209,7 @@ namespace UTTT.Ejemplo.Persona
                 Expression<Func<CatSexo, bool>> predicateSexo = c => c.id == idSexo;
                 predicateSexo.Compile();
                 List<CatSexo> lista = dcGlobal.GetTable<CatSexo>().Where(predicateSexo).ToList();
-                CatSexo catTemp = new CatSexo();            
+                CatSexo catTemp = new CatSexo();
                 this.ddlSexo.DataTextField = "strValor";
                 this.ddlSexo.DataValueField = "id";
                 this.ddlSexo.DataSource = lista;
