@@ -14,20 +14,25 @@
         <div class="row">
             <div class="col-xs-12">
               <h2><asp:Label ID="lblAccion" runat="server" Text="Registro" Font-Bold="True"></asp:Label></h2>
-
+                
             </div>
-        </div>
+            </div>
         <form runat="server" class="form-horizontal">
             <div class="form-group">
                 <asp:Label ID="lblSexo" runat="server" Text="Sexo:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10">
                     <div class="dropdown">
                         <asp:DropDownList ID="ddlSexo" runat="server" 
-                onselectedindexchanged="ddlSexo_SelectedIndexChanged" AutoPostBack="true" ForeColor="black"
-                            CssClass="selectpicker btn btn-secondary" Width="716px">
+                onselectedindexchanged="ddlSexo_SelectedIndexChanged"  ForeColor="black"
+                            CssClass="selectpicker btn btn-secondary" Width="610px" Height="38px">
             </asp:DropDownList>
 
                     </div>
+                                            <div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlSexo" InitialValue="-1"
+                                 ErrorMessage="Porfavor selecciona un genero" ID="rfvSexo" 
+                                CssClass="form-control alert-danger text-center"></asp:RequiredFieldValidator>
+                     </div>
                 </div>
             </div>
             
@@ -39,7 +44,9 @@
                     MinLength="3" MaxLength="3" onkeypress="return numbersonly(event);" ></asp:TextBox>
                       <div>
                         <asp:RequiredFieldValidator ID="rsvClaveUnica" runat="server"
-                            ErrorMessage="El campo de clave Unica es obligatorio" ControlToValidate="txtClaveUnica" CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
+                            ErrorMessage="El campo de clave Unica es obligatorio" 
+                            ControlToValidate="txtClaveUnica" 
+                            CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
                      </div>
             </div>
                    <script type="text/javascript">
@@ -65,7 +72,7 @@
                        function letrasonly(e) {
                            var unicode = e.charCode ? e.charCode : e.KeyCode
                            if (unicode < 65 || unicode > 90) {
-                               if (unicode != 241) {
+                               if (unicode != 20 && unicode != 241) {
                                    if (unicode < 96 || unicode > 122) {
                                        return false
                                    }
@@ -76,8 +83,10 @@
                    </script>   
        
                 <div>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
-                            ErrorMessage="El campo Nombre es oblogatorio" ControlToValidate="txtClaveUnica" CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rsvNombre" runat="server"
+                            ErrorMessage="El campo Nombre es oblogatorio"
+                            ControlToValidate="txtNombre" 
+                            CssClass="form-control alert-danger text-center"></asp:RequiredFieldValidator>
                      </div>           
                 
                 </div>
@@ -85,29 +94,38 @@
             <div class="form-group">
                 <asp:Label ID="lblAPaterno" runat="server" Text="Apellido Paterno:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10"> 
-            <asp:TextBox ID="txtAPaterno" runat="server"  BorderStyle="Solid"
+            <asp:TextBox ID="txtAPaterno" runat="server"  
                 placeholder="Apellido Paterno" minlength="3" MaxLength="20" onkeypress="return letrasonly(event);"
                 CssClass="form-control" oncopy="return false" pattern="[A-Za-z]+" onpaste="return false" required></asp:TextBox>
-                </div>
+
                                 <div>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"
-                            ErrorMessage="El campo Apellido Paterno es obligatorio" ControlToValidate="txtClaveUnica" CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator ID="rfvAPaterno" runat="server"
+                            ErrorMessage="El campo Apellido Paterno es obligatorio"
+                            ControlToValidate="txtAPaterno"
+                            CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
                      </div>
+                </div>
+
             </div>
 
              <div class="form-group">
                 <asp:Label ID="lblAMaterno" runat="server" Text="Apellido Materno:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10"> 
-                    <asp:TextBox ID="txtAMaterno" runat="server" placeholder="Apellido Materno" 
+                    <asp:TextBox ID="txtAMaterno" runat="server" placeholder="Apellido Materno" MinLength="3" MaxLength="20"
                     onkeypress="return letrasonly(event);" CssClass="form-control" oncopy="return false"
                         pattern="[A-Za-z]+" onpaste="return false" required></asp:TextBox>
+                
+                                <div>
+                        <asp:RequiredFieldValidator ID="rfvAMaterno" runat="server"
+                            ErrorMessage="El campo Apellido Materno es obligatorio" ControlToValidate="txtAPaterno" CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
+                     </div>
                 </div>
             </div>
 
             <div class="form-group">
                 <asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de Nacimiento:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10"> 
-                                    <asp:Calendar ID="dteCalendar" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="100px" Width="900px" CellPadding="1" DayNameFormat="Shortest">
+                                    <asp:Calendar ID="dteCalendar" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="100px" Width="554px" CellPadding="1" DayNameFormat="Shortest">
                     <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
                     <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
                     <OtherMonthDayStyle ForeColor="#999999" />
@@ -117,6 +135,7 @@
                     <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
                     <WeekendDayStyle BackColor="#CCCCFF"  />
                 </asp:Calendar>
+                      
                 </div>
             </div>
 
@@ -138,7 +157,13 @@
                             }
                         }
                     </script>
+                    <div>
+                        <asp:RequiredFieldValidator ID="rfvHermanos" runat="server"
+                            ErrorMessage="El campo Numero de hermanos es obligatorio" 
+                            ControlToValidate="txtNumHermano" CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
+                     </div>
                 </div>
+                              
             </div>
 
             <div class="form-group">
@@ -148,8 +173,12 @@
                             placeholder="Correo electronico ej prueba@prueba.com" 
                              CssClass="form-control" oncopy="return false"
                              onpaste="return false" required></asp:TextBox>
-            
+                  <div>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
+                            ErrorMessage="El campo Correo Electronico es obligatorio" ControlToValidate="txtCorreo" CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
+                     </div>
                 </div>
+                        
             </div>
 
             <div class="form-group">
@@ -158,7 +187,13 @@
                             <asp:TextBox ID="txtCP" runat="server" 
                                CssClass="form-control" placeholder="Codigo Postal" oncopy="return false"
                              onpaste="return false" required></asp:TextBox>
+                        <div>
+                        <asp:RequiredFieldValidator ID="rfvCodigoPostal" runat="server"
+                            ErrorMessage="El campo Codigo Postal es obligatorio" ControlToValidate="txtCP" CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
+                     </div> 
+
                 </div>
+                          
             </div>
 
             <div class="form-group">
@@ -167,27 +202,32 @@
                                 <asp:TextBox ID="txtRFC" runat="server" placeholder="RFC" 
                                  CssClass="form-control" oncopy="return false"
                              onpaste="return false" required ></asp:TextBox>
-
+                     <div>
+                        <asp:RequiredFieldValidator ID="rfvRFC" runat="server"
+                            ErrorMessage="El campo RFC es obligatorio" ControlToValidate="txtRFC" CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
+                     </div>
                 </div>
+                             
             </div>
 
             <div class="form-group">
                         <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" 
-            onclick="btnAceptar_Click" CssClass="form-control btn btn-primary" />
+            onclick="btnAceptar_Click" CssClass="form-control btn btn-primary" Width="610px" />
             </div>
             
-            <div class="form-group">
-        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" 
-            onclick="btnCancelar_Click" ViewStateMode="Disabled" CssClass="form-control btn btn-secondary"/>
-            </div>
+
 
             <div>
                 <br />
-                <br />
-                <br />
             </div>
-    
+
+                                <div class="form-group">
+        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" 
+            onclick="btnCancelar_Click" CssClass="form-control btn btn-secondary" Width="610px"/>
+            </div>
     </form>
+
+
     </div>
 </body>
 </html>

@@ -2,10 +2,9 @@
     text-align:center
 }
 
-.contenedor{
-    width:40%;
-    margin-top: 13%;
-    margin-left: 300px;
-    border: 5px;
-    background-color: lavender;
+.contenedor {
+    width: 60% !important;
+    margin-left: 300px !important;
+    border: 1px !important;
+    background-color: lavender !important;
 }
