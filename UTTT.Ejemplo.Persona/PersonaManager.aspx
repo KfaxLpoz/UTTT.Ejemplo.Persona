@@ -21,7 +21,7 @@
             <div class="form-group">
                 <asp:Label ID="lblSexo" runat="server" Text="Sexo:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10">
-                    <div class="dropdown">
+                    <div class="dropdown"> 
                         <asp:DropDownList ID="ddlSexo" runat="server" 
                 onselectedindexchanged="ddlSexo_SelectedIndexChanged"  ForeColor="black"
                             CssClass="selectpicker btn btn-secondary" Width="610px" Height="38px">
