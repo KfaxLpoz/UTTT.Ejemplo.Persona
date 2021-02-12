@@ -39,28 +39,17 @@
             <div class="form-group">
                 <asp:Label ID="lblClaveUnica" runat="server" Text="Clave Unica:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10">
-                    <asp:TextBox ID="txtClaveUnica"  runat="server" title="Clave Unica" required
-                    CssClass="form-control" placeholder="clave numerica de tres digitos"
-                    MinLength="3" MaxLength="3" onkeypress="return numbersonly(event);" ></asp:TextBox>
+                    <asp:TextBox ID="txtClaveUnica"  runat="server" title="Clave Unica solo recibe numeros" required
+                    CssClass="form-control" placeholder="clave numerica de tres digitos entre 100 y 999" pattern="[0-9]{3}" 
+                        MinLength="3" MaxLength="3" ></asp:TextBox>
                       <div>
                         <asp:RequiredFieldValidator ID="rsvClaveUnica" runat="server"
                             ErrorMessage="El campo de clave Unica es obligatorio" 
                             ControlToValidate="txtClaveUnica" 
-                            CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
-                     </div>
-            </div>
-                   <script type="text/javascript">
-                    function numbersonly(e) {
-                    var unicode = e.charCode ? e.charCode : e.KeyCode
-                    if (unicode != 8 && unicode != 44) {
-                        if (unicode < 48 || unicode > 57) {
-                            return false
-                        }
-                    }
-                   }
-            </script>
+                            CssClass="form-control alert-danger text-center"></asp:RequiredFieldValidator>
                 </div>
-                   
+                     </div>
+            </div> 
             <div class="form-group">
                 <asp:Label ID="LblNombre" runat="server" Text="Nombre:" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10"> 
@@ -175,8 +164,13 @@
                              onpaste="return false" required></asp:TextBox>
                   <div>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
-                            ErrorMessage="El campo Correo Electronico es obligatorio" ControlToValidate="txtCorreo" CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
-                     </div>
+                            ErrorMessage="El campo Correo Electronico es obligatorio"
+                            ControlToValidate="txtCorreo" CssClass="form-control alert-danger text-center" ></asp:RequiredFieldValidator>
+                      <asp:RegularExpressionValidator ID="revCorreo" runat="server"
+                          ErrorMessage="por favor ingresa un correo valido ej: ejemplo@ejemplo.com   ^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$" 
+                          ControlToValidate="txtCorreo" ValidationExpression="^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$"
+                          CssClass="form-control alert-danger text-center"></asp:RegularExpressionValidator>
+                  </div>
                 </div>
                         
             </div>
