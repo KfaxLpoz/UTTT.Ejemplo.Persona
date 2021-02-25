@@ -14,7 +14,7 @@
     <RootNamespace>UTTT.Ejemplo.Persona</RootNamespace>
     <AssemblyName>UTTT.Ejemplo.Persona</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <TargetFrameworkProfile />
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -78,10 +78,10 @@
   <ItemGroup>
     <Content Include="controlformato.css" />
     <Content Include="Csss\estilos.css" />
-    <Content Include="Default.aspx" />
     <Content Include="direccion.aspx" />
     <Content Include="DireccionExtraManager.aspx" />
     <Content Include="DireccionManager.aspx" />
+    <Content Include="errorPage.aspx" />
     <Content Include="Images\delrecord_16x16.png" />
     <Content Include="Images\editrecord_16x16.png" />
     <Content Include="Images\Pixir-1-1-300x181.png" />
@@ -104,13 +104,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.aspx.cs">
-      <SubType>ASPXCodeBehind</SubType>
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="direccion.aspx.cs">
       <DependentUpon>direccion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -131,6 +124,13 @@
     </Compile>
     <Compile Include="DireccionManager.aspx.designer.cs">
       <DependentUpon>DireccionManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="errorPage.aspx.cs">
+      <DependentUpon>errorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="errorPage.aspx.designer.cs">
+      <DependentUpon>errorPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="javaScripPage.aspx.cs">
       <DependentUpon>javaScripPage.aspx</DependentUpon>
